@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Alex – Mediengestaltung Bild & Ton</title>
+  <meta name="description" content="Portfolio von Alex – Mediengestaltung Bild & Ton: Commercials, Social Clips, BTS & Showreel." />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#0B0B0F',
+            surface: '#121216',
+            primary: '#FF0F2F',
+            text: '#EDEDED',
+            secondary: '#A8A8B3',
+            accent: '#5AE1FF',
+            ok: '#2AD67C'
+          },
+          boxShadow: {
+            'elev': '0 10px 30px rgba(0,0,0,.35)'
+          },
+          borderRadius: { xl2: '1.25rem' }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { --maxw: 1280px; }
+    html, body { background:#0B0B0F; color:#EDEDED; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif }
+    * { scrollbar-width: thin; scrollbar-color: #2a2a33 transparent; }
+    *::-webkit-scrollbar{height:10px;width:10px}
+    *::-webkit-scrollbar-thumb{background:#2a2a33;border-radius:999px}
+    *::-webkit-scrollbar-track{background:transparent}
+    .reveal { opacity:0; transform: translateY(12px) scale(0.98); transition: opacity .6s ease, transform .6s ease; }
+    .in-view { opacity:1; transform: translateY(0) scale(1); }
+    @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none } }
+    .row-scroll { scroll-snap-type: x mandatory; }
+    .row-card { scroll-snap-align: start; }
+    .glass { background: rgba(18,18,22,.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.08); }
+    .wormhole { position: relative; height: 180px; overflow: hidden; }
+    .wormhole::before {
+      content:""; position:absolute; inset:-40% -20% 0 -20%;
+      background: radial-gradient(ellipse at center, rgba(90,225,255,.25) 0%, rgba(255,15,47,.18) 35%, rgba(11,11,15,0) 60%);
+      filter: blur(28px); transform-origin:center; animation: spin 14s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce){ .wormhole::before{ animation:none } }
+    .poster { aspect-ratio: 16 / 9; }
+    .card { transition: transform .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius: .9rem; font-weight:600; }
+  </style>
+</head>
+<body class="bg-bg">
+
+<header class="sticky top-0 z-40 glass">
+  <div class="mx-auto max-w-[var(--maxw)] px-4 md:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="font-extrabold tracking-tight text-xl md:text-2xl">Alex<span class="text-primary">•</span>Portfolio</a>
+    <nav class="hidden md:flex gap-6 text-secondary">
+      <a href="#work" class="hover:text-text">Work</a>
+      <a href="#services" class="hover:text-text">Leistungen</a>
+      <a href="#about" class="hover:text-text">Über mich</a>
+      <a href="#contact" class="hover:text-text">Kontakt</a>
+    </nav>
+    <a href="#contact" class="btn bg-primary text-white hover:opacity-90">Projekt anfragen</a>
+  </div>
+</header>
+
+<section id="top" class="relative min-h-[78vh] flex items-end">
+  <div aria-hidden="true" class="absolute inset-0">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 to-black/70 z-10"></div>
+    <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover" alt="Billboard Poster" />
+  </div>
+  <div class="relative z-20 w-full">
+    <div class="mx-auto max-w-[var(--maxw)] px-4 md:px-6 py-12">
+      <div class="max-w-2xl glass p-6 md:p-8 rounded-xl reveal">
+        <div class="text-secondary text-xs font-semibold uppercase tracking-[.18em] mb-3">Mediengestaltung – Bild & Ton</div>
+        <h1 class="font-[800] text-3xl md:text-5xl leading-tight mb-4" style="font-family:Manrope,Inter">Bild & Ton, die knallen.</h1>
+        <p class="text-secondary mb-6">Commercials, Social, Musik. Schnelle Edits. Klare Story.</p>
+        <div class="flex gap-3">
+          <button id="playReel" class="btn bg-white text-black hover:opacity-90">▶ Showreel</button>
+          <a href="#work" class="btn bg-surface text-text border border-white/10 hover:bg-white/10">Work ansehen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wormhole"></div>
+
+<footer class="mt-8">
+  <div class="mx-auto max-w-[var(--maxw)] px-4 md:px-6 py-10 text-secondary">
+    © <span id="year"></span> Alex. Alle Rechte vorbehalten.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
